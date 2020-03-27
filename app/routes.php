@@ -9,7 +9,6 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 return function (App $app) {
 
     $app->get('/validate', function (Request $request, Response $response) {
-//        $response->getBody()->write("CON OK");
         $pin = '5678';
 
         $split = explode("*",$_REQUEST['ussd_string']);
@@ -23,7 +22,7 @@ return function (App $app) {
         }
 
         if(count($split)<2){
-            $message = "CON Please enter your PIN:";
+            $message = "CON Sample\n Please enter your PIN:";
         }else{
             if($split[1]!='5678'){
                 $message = "END, Invalid PIN";
