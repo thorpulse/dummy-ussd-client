@@ -8,6 +8,34 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
 
+    $app->get('/welcome', function (Request $request, Response $response) {
+        
+        $split = [];
+        
+        if(isset($_REQUEST['ussd_string'])){
+            $split = explode("*",$_REQUEST['ussd_string']);
+        }
+
+        foreach($split as $key=>$item)
+        {
+            if(empty($item))
+            {
+                unset($split[$key]);
+            }
+        }
+
+        if(count($split)<2){
+            $message = "CON Welcome to Switchlink. Enter ID Number to Activate your Account:";
+        }else{            
+            $message = "CON OK|2";
+        }
+
+        $response->getBody()->write($message);
+
+        return $response;
+    });
+
+
     $app->get('/validate', function (Request $request, Response $response) {
         $pin = '5678';
 
