@@ -25,7 +25,7 @@ return function (App $app) {
         }
 
         if(count($split)<2){
-            $message = "CON Welcome to Switchlink. Enter ID Number to Activate your Account:";
+            $message = "CON Welcome to Ngao Credit Limited. Enter ID Number to Activate your Account:";
         }else{            
             $message = "CON OK|2";
         }
