@@ -78,7 +78,7 @@ return function (App $app) {
         }
 
         if(count($split)<2){
-            $message = "CON Sample\n Please enter your PIN:";
+            $message = "CON Ngao Credit Limited\n Please enter your PIN:";
         }else{
             if($split[1]!='5678'){
                 $message = "END, Invalid PIN";
