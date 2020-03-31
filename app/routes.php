@@ -35,6 +35,34 @@ return function (App $app) {
         return $response;
     });
 
+    $app->get('/generic_action', function (Request $request, Response $response) {
+        
+        $confirm = "";
+        
+        if(isset($_REQUEST['confirm'])){
+            $confirm = $_REQUEST['confirm'];
+        }
+
+        if($confirm=='1'){
+            $message = "Success, Thank you";
+        }else{            
+            $message = "Cancelled, Thank you";
+        }
+
+        $response->getBody()->write($message);
+
+        return $response;
+    });
+
+    $app->get('/max_amount', function (Request $request, Response $response) {
+        
+        $message = "Max Amount KSh 2,500";
+
+        $response->getBody()->write($message);
+
+        return $response;
+    });
+
 
     $app->get('/validate', function (Request $request, Response $response) {
         $pin = '5678';
